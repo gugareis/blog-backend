@@ -1,0 +1,149 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/share/memory/arena.cpp:79), pid=17192, tid=6636
+#
+# JRE version: Java(TM) SE Runtime Environment (14.0.2+12) (build 14.0.2+12-46)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (14.0.2+12-46, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:51723 -javaagent:D:\eclipse\jee-2020-06\eclipse\configuration\org.eclipse.osgi\413\0\.cp\lib\javaagent-shaded.jar -Dfile.encoding=UTF-8 com.frwk.blog.BlogApplication
+
+Host: Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 18362 (10.0.18362.959)
+Time: Thu Aug  6 11:49:46 2020 Hora oficial do Brasil elapsed time: 122 seconds (0d 0h 2m 2s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000020f3a66a800):  JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=6636, stack(0x0000005f18d00000,0x0000005f18e00000)]
+
+
+Current CompileTask:
+C2: 122828 5864       4       org.springframework.core.annotation.TypeMappedAnnotations::scan (62 bytes)
+
+Stack: [0x0000005f18d00000,0x0000005f18e00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5f8a9a]
+V  [jvm.dll+0x74247a]
+V  [jvm.dll+0x743c2f]
+V  [jvm.dll+0x744273]
+V  [jvm.dll+0x20d288]
+V  [jvm.dll+0xabea6]
+V  [jvm.dll+0xac1fc]
+V  [jvm.dll+0x32122e]
+V  [jvm.dll+0x4f2726]
+V  [jvm.dll+0x18ce15]
+V  [jvm.dll+0x1e5efa]
+V  [jvm.dll+0x1e50b8]
+V  [jvm.dll+0x1779cc]
+V  [jvm.dll+0x1f4105]
+V  [jvm.dll+0x1f22eb]
+V  [jvm.dll+0x7070cd]
+V  [jvm.dll+0x6ffeda]
+V  [jvm.dll+0x5f78f6]
+C  [ucrtbase.dll+0x20e82]
+C  [KERNEL32.DLL+0x17bd4]
+C  [ntdll.dll+0x6ce51]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000020f349632d0, length=41, elements={
+0x0000020f2ee75000, 0x0000020f2ee76000, 0x0000020f2ee8a800, 0x0000020f2ee8d800,
+0x0000020f2ee90000, 0x0000020f2ee97000, 0x0000020f2eea5000, 0x0000020f2eea8000,
+0x0000020f2ee5a000, 0x0000020f2f974800, 0x0000020f2f977000, 0x0000020f2f978000,
+0x0000020f3028f000, 0x0000020f3b31a000, 0x0000020f3b31c000, 0x0000020f3b321800,
+0x0000020f3b319800, 0x0000020f317c8800, 0x0000020f3a66a800, 0x0000020f3b318800,
+0x0000020f3b317800, 0x0000020f3b314800, 0x0000020f3b31b000, 0x0000020f3b315000,
+0x0000020f3b317000, 0x0000020f3b316000, 0x0000020f3b320800, 0x0000020f3b31f000,
+0x0000020f3b320000, 0x0000020f3b322800, 0x0000020f3b31c800, 0x0000020f3b323000,
+0x0000020f3b31d800, 0x0000020f3b31e000, 0x0000020f31782800, 0x0000020f31784000,
+0x0000020f31780800, 0x0000020f31783000, 0x0000020f3177e000, 0x0000020f31784800,
+0x0000020f3177f000
+}
+
+Java Threads: ( => current thread )
+  0x0000020f2ee75000 JavaThread "Reference Handler" daemon [_thread_blocked, id=26868, stack(0x0000005f17b00000,0x0000005f17c00000)]
+  0x0000020f2ee76000 JavaThread "Finalizer" daemon [_thread_blocked, id=27320, stack(0x0000005f17c00000,0x0000005f17d00000)]
+  0x0000020f2ee8a800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=16976, stack(0x0000005f17d00000,0x0000005f17e00000)]
+  0x0000020f2ee8d800 JavaThread "Attach Listener" daemon [_thread_blocked, id=3012, stack(0x0000005f17e00000,0x0000005f17f00000)]
+  0x0000020f2ee90000 JavaThread "Service Thread" daemon [_thread_blocked, id=6376, stack(0x0000005f17f00000,0x0000005f18000000)]
+  0x0000020f2ee97000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=23992, stack(0x0000005f18000000,0x0000005f18100000)]
+  0x0000020f2eea5000 JavaThread "C1 CompilerThread0" daemon [_thread_in_native, id=20196, stack(0x0000005f18100000,0x0000005f18200000)]
+  0x0000020f2eea8000 JavaThread "Sweeper thread" daemon [_thread_blocked, id=25328, stack(0x0000005f18200000,0x0000005f18300000)]
+  0x0000020f2ee5a000 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=3576, stack(0x0000005f18300000,0x0000005f18400000)]
+  0x0000020f2f974800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=26644, stack(0x0000005f18500000,0x0000005f18600000)]
+  0x0000020f2f977000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=25832, stack(0x0000005f18600000,0x0000005f18700000)]
+  0x0000020f2f978000 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=22372, stack(0x0000005f18700000,0x0000005f18800000)]
+  0x0000020f3028f000 JavaThread "Notification Thread" daemon [_thread_blocked, id=24148, stack(0x0000005f18800000,0x0000005f18900000)]
+  0x0000020f3b31a000 JavaThread "Live Reload Server" daemon [_thread_in_native, id=27336, stack(0x0000005f19f00000,0x0000005f1a000000)]
+  0x0000020f3b31c000 JavaThread "DestroyJavaVM" [_thread_blocked, id=24592, stack(0x0000005f17400000,0x0000005f17500000)]
+  0x0000020f3b321800 JavaThread "Thread-6" [_thread_blocked, id=27536, stack(0x0000005f17100000,0x0000005f17200000)]
+  0x0000020f3b319800 JavaThread "restartedMain" [_thread_in_vm, id=24108, stack(0x0000005f17200000,0x0000005f17300000)]
+  0x0000020f317c8800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=6800, stack(0x0000005f17300000,0x0000005f17400000)]
+=>0x0000020f3a66a800 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=6636, stack(0x0000005f18d00000,0x0000005f18e00000)]
+  0x0000020f3b318800 JavaThread "Catalina-utility-1" [_thread_blocked, id=22184, stack(0x0000005f18f00000,0x0000005f19000000)]
+  0x0000020f3b317800 JavaThread "Catalina-utility-2" [_thread_blocked, id=25192, stack(0x0000005f19500000,0x0000005f19600000)]
+  0x0000020f3b314800 JavaThread "container-0" [_thread_blocked, id=7760, stack(0x0000005f19600000,0x0000005f19700000)]
+  0x0000020f3b31b000 JavaThread "task-1" [_thread_blocked, id=27528, stack(0x0000005f19700000,0x0000005f19800000)]
+  0x0000020f3b315000 JavaThread "PostgreSQL-JDBC-SharedTimer-2" daemon [_thread_blocked, id=27460, stack(0x0000005f19800000,0x0000005f19900000)]
+  0x0000020f3b317000 JavaThread "HikariPool-2 housekeeper" daemon [_thread_blocked, id=25144, stack(0x0000005f19a00000,0x0000005f19b00000)]
+  0x0000020f3b316000 JavaThread "HikariPool-2 connection adder" daemon [_thread_blocked, id=21804, stack(0x0000005f19b00000,0x0000005f19c00000)]
+  0x0000020f3b320800 JavaThread "File Watcher" daemon [_thread_blocked, id=27520, stack(0x0000005f19c00000,0x0000005f19d00000)]
+  0x0000020f3b31f000 JavaThread "http-nio-8080-BlockPoller" daemon [_thread_in_native, id=25204, stack(0x0000005f19d00000,0x0000005f19e00000)]
+  0x0000020f3b320000 JavaThread "http-nio-8080-exec-1" daemon [_thread_blocked, id=27040, stack(0x0000005f19e00000,0x0000005f19f00000)]
+  0x0000020f3b322800 JavaThread "http-nio-8080-exec-2" daemon [_thread_blocked, id=16348, stack(0x0000005f1a000000,0x0000005f1a100000)]
+  0x0000020f3b31c800 JavaThread "http-nio-8080-exec-3" daemon [_thread_blocked, id=24564, stack(0x0000005f1a100000,0x0000005f1a200000)]
+  0x0000020f3b323000 JavaThread "http-nio-8080-exec-4" daemon [_thread_blocked, id=22904, stack(0x0000005f1a200000,0x0000005f1a300000)]
+  0x0000020f3b31d800 JavaThread "http-nio-8080-exec-5" daemon [_thread_blocked, id=27624, stack(0x0000005f1a300000,0x0000005f1a400000)]
+  0x0000020f3b31e000 JavaThread "http-nio-8080-exec-6" daemon [_thread_blocked, id=19724, stack(0x0000005f1a400000,0x0000005f1a500000)]
+  0x0000020f31782800 JavaThread "http-nio-8080-exec-7" daemon [_thread_blocked, id=15920, stack(0x0000005f1a500000,0x0000005f1a600000)]
+  0x0000020f31784000 JavaThread "http-nio-8080-exec-8" daemon [_thread_blocked, id=7620, stack(0x0000005f1a600000,0x0000005f1a700000)]
+  0x0000020f31780800 JavaThread "http-nio-8080-exec-9" daemon [_thread_blocked, id=27160, stack(0x0000005f1a700000,0x0000005f1a800000)]
+  0x0000020f31783000 JavaThread "http-nio-8080-exec-10" daemon [_thread_blocked, id=25124, stack(0x0000005f1a800000,0x0000005f1a900000)]
+  0x0000020f3177e000 JavaThread "http-nio-8080-ClientPoller" daemon [_thread_in_native, id=26484, stack(0x0000005f1a900000,0x0000005f1aa00000)]
+  0x0000020f31784800 JavaThread "http-nio-8080-Acceptor" daemon [_thread_in_native, id=13044, stack(0x0000005f1aa00000,0x0000005f1ab00000)]
+  0x0000020f3177f000 JavaThread "task-2" [_thread_in_vm, id=25292, stack(0x0000005f1ab00000,0x0000005f1ac00000)]
+
+Other Threads:
+  0x0000020f2ee74000 VMThread "VM Thread" [stack: 0x0000005f17a00000,0x0000005f17b00000] [id=7580]
+  0x0000020f2fb0e000 WatcherThread [stack: 0x0000005f18900000,0x0000005f18a00000] [id=720]
+  0x0000020f0fefd800 GCTaskThread "GC Thread#0" [stack: 0x0000005f17500000,0x0000005f17600000] [id=27384]
+  0x0000020f3036a800 GCTaskThread "GC Thread#1" [stack: 0x0000005f18a00000,0x0000005f18b00000] [id=24756]
+  0x0000020f3036b000 GCTaskThread "GC Thread#2" [stack: 0x0000005f18b00000,0x0000005f18c00000] [id=19276]
+  0x0000020f31253000 GCTaskThread "GC Thread#3" [stack: 0x0000005f19000000,0x0000005f19100000] [id=968]
+  0x0000020f30dd2000 GCTaskThread "GC Thread#4" [stack: 0x0000005f19100000,0x0000005f19200000] [id=26728]
+  0x0000020f315f6800 GCTaskThread "GC Thread#5" [stack: 0x0000005f19200000,0x0000005f19300000] [id=26688]
+  0x0000020f31b67000 GCTaskThread "GC Thread#6" [stack: 0x0000005f19300000,0x0000005f19400000] [id=6560]
+  0x0000020f31257800 GCTaskThread "GC Thread#7" [stack: 0x0000005f19400000,0x0000005f19500000] [id=24192]
+  0x0000020f0ff0e000 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000005f17600000,0x0000005f17700000] [id=11340]
+  0x0000020f0ff11000 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000005f17700000,0x0000005f17800000] [id=25620]
+  0x0000020f37d11800 ConcurrentGCThread "G1 Conc#1" [stack: 0x0000005f18e00000,0x0000005f18f00000] [id=8776]
+  0x0000020f0ff7d800 ConcurrentGCThread "G1 Refine#0" [stack: 0x0000005f17800000,0x0000005f17900000] [id=25860]
+  0x0000020f0ff7e000 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x0000005f17900000,0x0000005f17a00000] [id=26536]
+
+Threads with active compile tasks:
+C2 CompilerThread0   122872 6130       4       org.springframework.core.annotation.TypeMappedAnnotations::get (52 bytes)
+C1 CompilerThread0   122872 6631   !   2       org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor::determineCandidateConstructors (715 bytes)
+C2 CompilerThread1   122872 6187   !   4       org.springframework.core.annotation.AnnotationsScanner::processClassHierarchy (236 bytes)
+C2 CompilerThread2   122872 5864       4       org.springframework.core.annotation.TypeMappedAnnotations::scan (62 bytes)
