@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,26 +34,18 @@ public class UserRepositoryTest {
 	public void testFetchData() {
 		/* Test data retrieval */
 		//given
-//		String originalInput = "123456";
-//		String encodedPassword = Base64.getEncoder().encodeToString(originalInput.getBytes());
-//		User usersSave = new User();
-//		usersSave.setName("guga");
-//		usersSave.setEmail("guga@blog.com");
-//		usersSave.setPassword(encodedPassword);
-//		usersSave.setCreate_date(LocalDateTime.now());
-//		userRepository.save(usersSave);
-		//User savedUser = registerUseCase.registerUser(users);
+		String senha =  "123456";
+		User usersSave = new User();
+		usersSave.setUserName("guga");
+		usersSave.setName("guga");
+		usersSave.setEmail("guga@blog.com");
+		usersSave.setPassword(DigestUtils.sha256Hex(senha));
+		usersSave.setCreate_date(LocalDateTime.now());
+		userRepository.save(usersSave);
 		//when
 		User users =  userRepository.findByEmail("guga@blog.com"); 
-		//then
-//		for(User p : users){ 
-//
-//			System.out.println(p.getName());
-//			  assertEquals(p.getName(),"Cassandra");
-//			 
-//			  //count++;
-//		  }
-		System.out.println(users.getName());
-		  assertEquals(users.getName(),"guga");
+		//thenCC
+		System.out.println(users.getUserName());
+		  assertEquals(users.getUserName(),"guga");
 	}
 }

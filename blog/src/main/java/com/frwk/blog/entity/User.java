@@ -31,7 +31,6 @@ public class User{
 	private String userName;
 	private	String email;
 	private	String password; 
-	private	String token; 
 	private LocalDateTime create_date;
 //
 //	@Column(name="grupo_acesso_id")
