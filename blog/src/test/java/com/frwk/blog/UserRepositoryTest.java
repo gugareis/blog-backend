@@ -36,16 +36,16 @@ public class UserRepositoryTest {
 		//given
 		String senha =  "123456";
 		User usersSave = new User();
-		usersSave.setUserName("guga");
-		usersSave.setName("guga");
-		usersSave.setEmail("guga@blog.com");
+		usersSave.setUserName("gugar");
+		usersSave.setName("gugar");
+		usersSave.setEmail("gugar@blog.com");
 		usersSave.setPassword(DigestUtils.sha256Hex(senha));
 		usersSave.setCreate_date(LocalDateTime.now());
 		userRepository.save(usersSave);
 		//when
-		User users =  userRepository.findByEmail("guga@blog.com"); 
+		User users =  userRepository.findByEmail("gugar@blog.com"); 
 		//thenCC
 		System.out.println(users.getUserName());
-		  assertEquals(users.getUserName(),"guga");
+		  assertEquals(users.getUserName(),"gugar");
 	}
 }

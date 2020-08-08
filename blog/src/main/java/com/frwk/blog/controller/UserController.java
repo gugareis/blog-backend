@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.frwk.blog.dto.AuthRequestDto;
 import com.frwk.blog.dto.AuthResponseDto;
 import com.frwk.blog.dto.NewAccountDto;
+import com.frwk.blog.entity.User;
 import com.frwk.blog.service.CustomUserDetailsService;
 import com.frwk.blog.service.UserService;
 import com.frwk.blog.util.JwtUtil;
@@ -66,6 +68,10 @@ public class UserController {
 		
 		return ResponseEntity.ok(userService.registerUser(account));
 	}
-	
+	@RequestMapping(value = "/api/user", method = RequestMethod.GET)
+	public ResponseEntity<?> getList(Authentication authentication) {
+		final User user = userService.getUserByUserName(authentication.getName());
+		return ResponseEntity.ok(user);
+	}
 	
 }

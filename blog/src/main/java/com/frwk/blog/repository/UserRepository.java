@@ -7,7 +7,7 @@ import com.frwk.blog.entity.User;
 
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Integer> {
 	User findByEmail(String email);
 
 	User findByUserName(String userName);
